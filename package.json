@@ -1,0 +1,35 @@
+{
+	"name": "retold-beacon-host",
+	"version": "0.0.1",
+	"description": "Generic container host for ultravisor-beacon CapabilityProvider classes published as npm packages.  One or more providers are loaded by name and served through a single beacon registered with a target Ultravisor.",
+	"main": "bin/retold-beacon-host.js",
+	"bin": {
+		"retold-beacon-host": "bin/retold-beacon-host.js"
+	},
+	"scripts": {
+		"start": "node bin/retold-beacon-host.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stevenvelozo/retold-beacon-host.git"
+	},
+	"keywords": [
+		"retold",
+		"ultravisor",
+		"ultravisor-beacon",
+		"capability-provider",
+		"beacon-host"
+	],
+	"author": "Steven Velozo <steven@velozo.com> (http://velozo.com/)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/stevenvelozo/retold-beacon-host/issues"
+	},
+	"homepage": "https://github.com/stevenvelozo/retold-beacon-host",
+	"dependencies": {
+		"orator": "^6.0.4",
+		"orator-serviceserver-restify": "^2.0.10",
+		"pict": "^1.0.364",
+		"ultravisor-beacon": "^0.0.11"
+	}
+}
