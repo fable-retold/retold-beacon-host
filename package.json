@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/stevenvelozo/retold-beacon-host.git"
+		"url": "https://github.com/fable-retold/retold-beacon-host.git"
 	},
 	"keywords": [
 		"retold",
@@ -23,9 +23,9 @@
 	"author": "Steven Velozo <steven@velozo.com> (http://velozo.com/)",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/stevenvelozo/retold-beacon-host/issues"
+		"url": "https://github.com/fable-retold/retold-beacon-host/issues"
 	},
-	"homepage": "https://github.com/stevenvelozo/retold-beacon-host",
+	"homepage": "https://github.com/fable-retold/retold-beacon-host",
 	"dependencies": {
 		"orator": "^6.1.2",
 		"orator-serviceserver-restify": "^2.0.11",
