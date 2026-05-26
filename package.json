@@ -29,7 +29,7 @@
 	"dependencies": {
 		"orator": "^6.1.2",
 		"orator-serviceserver-restify": "^2.0.11",
-		"pict": "^1.0.368",
+		"pict": "^1.0.372",
 		"ultravisor-beacon": "^1.0.0"
 	}
 }
