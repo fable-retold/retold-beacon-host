@@ -1,0 +1,7 @@
+{
+	"Name": "retold-beacon-host",
+	"Version": "1.0.0",
+	"Description": "Generic container host for ultravisor-beacon CapabilityProvider classes published as npm packages.  One or more providers are loaded by name and served through a single beacon registered with a target Ultravisor.",
+	"GeneratedAt": "2026-05-30T22:31:45.146Z",
+	"GitCommit": "3130333"
+}
