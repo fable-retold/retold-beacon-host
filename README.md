@@ -1,12 +1,12 @@
 # Retold Beacon Host
 
-Generic container host for [ultravisor-beacon](https://stevenvelozo.github.io/ultravisor-beacon/) `CapabilityProvider` classes that are published as npm packages. It boots an [Orator](https://fable-retold.github.io/orator/) web server, `require()`s one or more provider packages by name, wraps them in a single beacon, and registers that beacon with a target [Ultravisor](https://stevenvelozo.github.io/ultravisor/).
+Generic container host for [ultravisor-beacon](https://github.com/stevenvelozo/ultravisor-beacon) `CapabilityProvider` classes that are published as npm packages. It boots an [Orator](https://github.com/fable-retold/orator) web server, `require()`s one or more provider packages by name, wraps them in a single beacon, and registers that beacon with a target [Ultravisor](https://github.com/stevenvelozo/ultravisor).
 
 The intended deployment shape is a container: build an image that installs `retold-beacon-host` plus the provider packages you want, then run the host as the container entrypoint with the flags that select the providers and point at your Ultravisor. It also runs on a developer box via `npx retold-beacon-host ...` when the providers are installed in the same `node_modules` tree.
 
 ## Why
 
-The [ultravisor-beacon-capability](https://stevenvelozo.github.io/ultravisor-beacon-capability/) module makes it easy to write a beacon capability as a class. The Retold Beacon Host is the other half: a ready-made process that loads those provider classes and stands them up as a running beacon, so a capability published to npm can be deployed without writing a bespoke boot script for every worker.
+The [ultravisor-beacon-capability](https://github.com/stevenvelozo/ultravisor-beacon-capability) module makes it easy to write a beacon capability as a class. The Retold Beacon Host is the other half: a ready-made process that loads those provider classes and stands them up as a running beacon, so a capability published to npm can be deployed without writing a bespoke boot script for every worker.
 
 ## Installation
 
@@ -58,7 +58,7 @@ The flag parser reads only the flags listed above; there are no short aliases an
 
 1. Parse and validate the CLI flags. A missing or out-of-range `--port`, a missing `--ultravisor-url`, or zero `--provider` flags causes the process to print an error and exit with code `2`.
 2. If `--config` is given, read and `JSON.parse` that file into a single config object. A read or parse failure logs a warning and continues with an empty config object.
-3. Construct a [Pict](https://fable-retold.github.io/pict/) instance configured with the requested `APIServerPort`.
+3. Construct a [Pict](https://github.com/fable-retold/pict) instance configured with the requested `APIServerPort`.
 4. Load each `--provider` package: `require()` it, find the exported constructor, and instantiate it as `new Provider(pProviderConfig, pPict)`. The same parsed config object is handed to every provider; each provider reads only the keys it cares about. Any provider that fails to require, does not export a constructor, or throws in its constructor causes the process to exit with code `1`.
 5. Wire up Orator (with the Restify service server), initialize it, and start the web server on `--port`.
 6. Register the beacon: create an `UltravisorBeacon` service pointed at `--ultravisor-url` under `--beacon-name`, register each provider's capability, and call `enable()` to bring the beacon online. A registration error is logged as a warning and does not stop the host.
@@ -76,10 +76,10 @@ A provider that offers neither is skipped with a warning. See [docs/architecture
 
 ## Related Modules
 
-- [ultravisor](https://stevenvelozo.github.io/ultravisor/) -- Process supervision and workflow orchestration server; the registration target for the host's beacon.
-- [ultravisor-beacon](https://stevenvelozo.github.io/ultravisor-beacon/) -- Beacon client and Fable service the host uses to register and run capabilities.
-- [ultravisor-beacon-capability](https://stevenvelozo.github.io/ultravisor-beacon-capability/) -- Convention-based base class for authoring the `CapabilityProvider` classes this host loads.
-- [retold-databeacon](https://fable-retold.github.io/retold-databeacon/) -- A purpose-built data beacon application; a comparison point for the generic, provider-loading host.
+- [ultravisor](https://github.com/stevenvelozo/ultravisor) -- Process supervision and workflow orchestration server; the registration target for the host's beacon.
+- [ultravisor-beacon](https://github.com/stevenvelozo/ultravisor-beacon) -- Beacon client and Fable service the host uses to register and run capabilities.
+- [ultravisor-beacon-capability](https://github.com/stevenvelozo/ultravisor-beacon-capability) -- Convention-based base class for authoring the `CapabilityProvider` classes this host loads.
+- [retold-databeacon](https://github.com/fable-retold/retold-databeacon) -- A purpose-built data beacon application; a comparison point for the generic, provider-loading host.
 
 ## License
 
