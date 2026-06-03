@@ -1,0 +1,10 @@
+parse argv
+  └─ validate (exit 2 on bad args)
+       └─ read --config JSON (warn + empty object on failure)
+            └─ new Pict({ Product, LogNoisiness, APIServerPort })
+                 └─ load each --provider  (exit 1 on require/export/ctor failure)
+                      └─ register + init Orator (exit 1 on failure)
+                           └─ startWebServer  →  "listening on port N"
+                                └─ instantiate UltravisorBeacon { ServerURL, Name, MaxConcurrent: 5 }
+                                     └─ register each provider's capability
+                                          └─ beacon.enable()  (warn-only on failure)

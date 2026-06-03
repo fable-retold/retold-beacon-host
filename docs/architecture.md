@@ -123,18 +123,8 @@ The host installs handlers for `SIGINT` and `SIGTERM`. Each handler logs a shutd
 
 ## Boot Flow Summary
 
-```
-parse argv
-  └─ validate (exit 2 on bad args)
-       └─ read --config JSON (warn + empty object on failure)
-            └─ new Pict({ Product, LogNoisiness, APIServerPort })
-                 └─ load each --provider  (exit 1 on require/export/ctor failure)
-                      └─ register + init Orator (exit 1 on failure)
-                           └─ startWebServer  →  "listening on port N"
-                                └─ instantiate UltravisorBeacon { ServerURL, Name, MaxConcurrent: 5 }
-                                     └─ register each provider's capability
-                                          └─ beacon.enable()  (warn-only on failure)
-```
+<!-- bespoke diagram: edit diagrams/boot-flow-summary.mmd or .hints.json, then: npx pict-renderer-graph build modules/apps/retold-beacon-host/docs -->
+![Boot Flow Summary](diagrams/boot-flow-summary.svg)
 
 ## Unknowns
 
