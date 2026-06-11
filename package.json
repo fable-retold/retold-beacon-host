@@ -1,6 +1,6 @@
 {
 	"name": "retold-beacon-host",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Generic container host for ultravisor-beacon CapabilityProvider classes published as npm packages.  One or more providers are loaded by name and served through a single beacon registered with a target Ultravisor.",
 	"main": "bin/retold-beacon-host.js",
 	"bin": {
@@ -29,7 +29,7 @@
 	"dependencies": {
 		"orator": "^6.1.2",
 		"orator-serviceserver-restify": "^2.0.11",
-		"pict": "^1.0.372",
-		"ultravisor-beacon": "^1.0.0"
+		"pict": "^1.0.393",
+		"ultravisor-beacon": "^1.0.5"
 	}
 }
